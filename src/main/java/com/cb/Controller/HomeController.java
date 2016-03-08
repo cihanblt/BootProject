@@ -3,9 +3,12 @@ package com.cb.Controller;
 import com.cb.Models.Customer;
 import com.cb.Repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,6 +22,13 @@ public class HomeController {
 
     @Autowired
     private CustomerRepository repository;
+
+    @RequestMapping("/deneme.php")
+    public ModelAndView deneme(){
+        ModelAndView modelAndView = new ModelAndView("deneme");
+        modelAndView.addObject("test","bu bir testtttt mesjdır....");
+        return modelAndView;
+    }
 
     @RequestMapping("/home")
     @ResponseBody
